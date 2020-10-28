@@ -5,7 +5,8 @@
             [reitit.ring.middleware.muuntaja :refer [format-negotiate-middleware
                                                      format-request-middleware
                                                      format-response-middleware]]
-            [muuntaja.core :as m]))
+            [muuntaja.core :as m]
+            [db.main :as db]))
 
 (defonce server (atom nil))
 
@@ -28,6 +29,7 @@
 
 (defn -main []
   (println "Server Started")
+  (db/createTables)
   (reset! server (run-server app {:port 4000})))
 
 (defn stop-server []
