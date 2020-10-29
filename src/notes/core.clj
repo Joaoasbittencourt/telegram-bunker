@@ -1,4 +1,4 @@
-(ns routes.core
+(ns notes.core
   (:require [org.httpkit.server :refer [run-server]]
             [reitit.ring :as ring]
             [reitit.ring.middleware.exception :refer [exception-middleware]]
@@ -6,7 +6,7 @@
                                                      format-request-middleware
                                                      format-response-middleware]]
             [muuntaja.core :as m]
-            [db.main :as db]))
+            [notes.db :as db]))
 
 (defonce server (atom nil))
 
@@ -29,7 +29,7 @@
 
 (defn -main []
   (println "Server Started")
-  (db/createTables)
+  (db/create-tables)
   (reset! server (run-server app {:port 4000})))
 
 (defn stop-server []

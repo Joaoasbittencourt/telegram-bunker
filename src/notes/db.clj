@@ -1,4 +1,4 @@
-(ns db.main
+(ns notes.db
   (:require [hugsql.core :as hugsql]))
 
 (def config
@@ -8,8 +8,8 @@
    :user "postgres"
    :password "postgres"})
 
-(hugsql/def-db-fns "notes.sql")
+(hugsql/def-sqlvec-fns "notes.sql")
 
-(defn createTables []
+(defn create-tables []
   (println "Creating  Notes Table")
   (create-notes-table config))
