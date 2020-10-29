@@ -8,8 +8,4 @@
    :user "postgres"
    :password "postgres"})
 
-(hugsql/def-sqlvec-fns "notes.sql")
-
-(defn create-tables []
-  (println "Creating  Notes Table")
-  (create-notes-table config))
+(hugsql/def-db-fns "notes.sql")

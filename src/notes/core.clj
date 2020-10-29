@@ -29,7 +29,6 @@
 
 (defn -main []
   (println "Server Started")
-  (db/create-tables)
   (reset! server (run-server app {:port 4000})))
 
 (defn stop-server []
